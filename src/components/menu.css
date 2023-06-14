@@ -1,0 +1,102 @@
+/* menu.css */
+
+/* Styles for desktop view */
+nav {
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+  .navCont{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  li {
+    margin-right: 10px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .cart {
+    position: relative;
+  }
+  
+  #cart-add {
+    
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+    padding: 4px;
+    font-size: 12px;
+  }
+  
+  .dropdown {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+   display: flex;
+   flex-direction: column;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+   height: fit-content;
+   border-radius: 2rem;
+
+    padding: 2rem;
+    z-index: 1;
+  }
+  
+  
+  #menu {
+    display: none;
+  }
+  
+  .open ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .show li {
+    display: block;
+  }
+  
+  /* Media queries for phone view */
+  @media (max-width: 600px) {
+    nav {
+        display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    ul {
+      flex-direction: column;
+      align-items: flex-start;
+      display: none; /* Hide the menu by default */
+    }
+  
+    .show {
+      display: block; 
+    }
+    #menu {
+      display: block; /* Show the menu toggle button */
+      cursor: pointer;
+    }
+    .menu> .open {
+        background-color: black;
+
+    }
+  }
+  
