@@ -1,72 +1,46 @@
-// import { createContext, useState, useEffect } from 'react'
+import React, { useContext } from 'react';
+import { CartContext } from '../context/cart.jsx';
+import './cart.css';
 
-// export const CartContext = createContext()
+export default function Cart() {
+  const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } = useContext(CartContext);
 
-// export const CartProvider = ({ children }) => {
-//   const [cartItems, setCartItems] = useState(localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [])
+  const handleIncrement = (item) => {
+    addToCart(item);
+  };
 
-//   const addToCart = (item) => {
-//     const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
+  const handleDecrement = (item) => {
+    removeFromCart(item);
+  };
 
-//     if (isItemInCart) {
-//       setCartItems(
-//         cartItems.map((cartItem) =>
-//           cartItem.id === item.id
-//             ? { ...cartItem, quantity: cartItem.quantity + 1 }
-//             : cartItem
-//         )
-//       );
-//     } else {
-//       setCartItems([...cartItems, { ...item, quantity: 1 }]);
-//     }
-//   };
-
-//   const removeFromCart = (item) => {
-//     const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
-
-//     if (isItemInCart.quantity === 1) {
-//       setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
-//     } else {
-//       setCartItems(
-//         cartItems.map((cartItem) =>
-//           cartItem.id === item.id
-//             ? { ...cartItem, quantity: cartItem.quantity - 1 }
-//             : cartItem
-//         )
-//       );
-//     }
-//   };
-
-//   const clearCart = () => {
-//     setCartItems([]);
-//   };
-
-//   const getCartTotal = () => {
-//     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-//   };
-
-//   useEffect(() => {
-//     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-//   }, [cartItems]);
-
-//   useEffect(() => {
-//     const cartItems = localStorage.getItem("cartItems");
-//     if (cartItems) {
-//       setCartItems(JSON.parse(cartItems));
-//     }
-//   }, []);
-
-//   return (
-//     <CartContext.Provider
-//       value={{
-//         cartItems,
-//         addToCart,
-//         removeFromCart,
-//         clearCart,
-//         getCartTotal,
-//       }}
-//     >
-//       {children}
-//     </CartContext.Provider>
-//   );
-// };
+  return (
+    <div className="cart-page">
+      <h1>Cart</h1>
+      {cartItems.length > 0 ? (
+        <>
+          {cartItems.map((item) => (
+            <div key={item.id} className="cart-item">
+              <div className="item-details">
+                <img src={item.thumbnail} alt={item.title} className="item-thumbnail" />
+                <div>
+                  <h2>{item.title}</h2>
+                  <p>{item.price}</p>
+                  <p>{item.description}</p>
+                </div>
+              </div>
+              <div className="item-controls">
+                <button onClick={() => handleDecrement(item)}>-</button>
+                <span>{item.quantity}</span>
+                <button onClick={() => handleIncrement(item)}>+</button>
+              </div>
+            </div>
+          ))}
+          <h3 className="total">Total: {getCartTotal()}</h3>
+          <button className="clear-cart" onClick={clearCart}>Clear Cart</button>
+        </>
+      ) : (
+        <p>Your cart is empty.</p>
+      )}
+    </div>
+  );
+}
