@@ -1,0 +1,102 @@
+/* products.css */
+
+.products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f7fafc;
+  }
+  
+  .products-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 5rem;
+  }
+  .products-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .products-heading h1 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+  
+  .products-container {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 0 2rem;
+  }
+  
+  .product-content {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Added this line */
+  }
+  
+  .product-content:hover {
+    transform: translateY(-0.25rem); /* Added this line */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added this line */
+  }
+  
+  .product-image {
+    border-radius: 0.25rem;
+    height: 12rem;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+  }
+  
+  .product-description {
+    margin-top: 1rem;
+  }
+  
+  .product-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .product-dec {
+    margin-top: 0.5rem;
+    color: #777777;
+  }
+  
+  .product-price {
+    margin-top: 0.5rem;
+    color: #777777;
+  }
+  
+  .product-addbutton {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .buttonadd {
+    padding: 0.5rem 1rem;
+    background-color: #4a5568;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .buttonadd:hover,
+  .buttonadd:focus {
+    background-color: #2d3748;
+  }
+  

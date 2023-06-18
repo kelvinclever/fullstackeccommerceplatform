@@ -1,0 +1,12 @@
+.carousel-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background:content-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .carousel{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }

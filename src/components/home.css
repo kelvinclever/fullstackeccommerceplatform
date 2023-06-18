@@ -1,5 +1,146 @@
-.home{
-  background-color: black;
-  
+/* home.css */
+
+.home {
+  display: flex;
+  flex-direction: column;
+
 }
-  
+
+.homecontainer {
+  display: flex;
+  flex:4;
+  margin: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1100px;
+
+}
+.carousel-wrapper{
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.homeleft p{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top:1rem;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+
+}
+#myLottieAnimation {
+  width: 40em;
+  height: 30em;
+  /* Add more styles as needed */
+}
+
+.rotate-z-axis {
+  display: inline-block;
+  perspective: 1000px;
+}
+
+.rotate-z-axis span {
+  display: inline-block;
+  transform-style: preserve-3d;
+  transform: rotateZ(0deg);
+  transition: transform 0.3s ease;
+  transform: rotateZ(70deg);
+}
+.rotate-z-axis span:nth-child(2){
+  background-color:rgb(24, 24, 87);
+  border-radius: 30%;
+  margin:5px;
+}
+.rotate-z-axis span:nth-child(4){
+  background-color:rgba(199, 56, 56, 0.945);
+  border-radius: 30%;
+  margin:5px;
+}
+.rotate-z-axis:hover span {
+  transform: rotateZ(0deg);
+  transform: rotateX(20deg);
+}
+
+.homeleft p span{
+  font-size: 4em;
+  font-weight: bolder;
+}
+.homeleft {
+  display: flex;
+  position: relative;
+  flex: 1;
+  height: 50%;
+  max-width: 400px; /* Set your desired maximum width here */
+  padding: 10px;
+
+}
+
+.homeright {
+  flex: 3;
+  max-width:600px; /* Set your desired maximum width here */
+  padding: 10px;
+}
+
+.home_image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.carousel-wrapper {
+  position: relative; /* Add relative positioning */
+  height: 300px; /* Set a fixed height for the carousel */
+  overflow: hidden;
+}
+
+.carousel-wrapper .carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Add transition for smooth sliding */
+}
+
+.carousel-wrapper .carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-wrapper .carousel-slide .carousel-item {
+  flex: 0 0 100%; /* Ensure each slide takes up full width */
+  transition: width 0.5s ease-in-out; /* Add transition for width change */
+  position: relative; /* Add relative positioning */
+}
+
+.carousel-wrapper .carousel-slide .carousel-item img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-wrapper .carousel-slide .carousel-item .prev-button,
+.carousel-wrapper .carousel-slide .carousel-item .next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer; /* Add cursor style */
+  transition: opacity 0.3s ease-in-out; /* Add transition for opacity change */
+}
+
+.carousel-wrapper .carousel-slide .carousel-item .prev-button {
+  left: 10px; /* Adjust the left position */
+}
+
+.carousel-wrapper .carousel-slide .carousel-item .next-button {
+  right: 10px; /* Adjust the right position */
+}
+
+.carousel-wrapper .carousel-slide .carousel-item .prev-button:hover,
+.carousel-wrapper .carousel-slide .carousel-item .next-button:hover {
+  opacity: 0.8; /* Reduce opacity on hover */
+}
