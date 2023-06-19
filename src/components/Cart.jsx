@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/cart.jsx';
+import { ToastContainer, toast } from 'react-toastify'
 import './cart.css';
 
 export default function Cart() {
@@ -12,6 +13,7 @@ export default function Cart() {
   const handleDecrement = (item) => {
     removeFromCart(item);
   };
+
 
   return (
     <div className="cart-page">

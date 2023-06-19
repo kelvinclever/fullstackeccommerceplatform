@@ -1,0 +1,772 @@
+.signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ui-wrapper {
+  --width: 250px;
+  --height: 50px;
+  --background: #fff;
+  --text-color: rgb(73, 73, 73);
+  --border-color: rgb(185, 184, 184);
+  --border-focus-color: rgb(0, 110, 255);
+  --shadow-color: rgba(34, 60, 80, 0.2);
+  --shadow-focus-color: rgba(0, 110, 255, 0.2);
+  --dropdown-button-color: #e6e6e6;
+  --dropdown-button-hover-color: #dad9d9;
+}
+
+.ui-wrapper *,
+.ui-wrapper *::before,
+.ui-wrapper *::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: var(--text-color);
+}
+
+.ui-wrapper {
+  width: var(--width);
+  height: var(--height);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: 10px;
+  position: relative;
+  border: 1px solid var(--border-color);
+  background-color: var(--background);
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-right: 10px;
+  -webkit-box-shadow: 0px 2px 5px 0px var(--shadow-color);
+  box-shadow: 0px 2px 5px 0px var(--shadow-color);
+  -webkit-transition: .4s;
+  -o-transition: .4s;
+  transition: .4s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.ui-wrapper>input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  left: 9999px;
+}
+
+.dropdown-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 10px;
+  cursor: pointer;
+  border-radius: 9px 0 0 9px;
+  background-color: var(--dropdown-button-color);
+}
+
+.dropdown-container::before {
+  content: "🇦🇹";
+  font-size: 20px;
+  background: none !important;
+}
+
+.dropdown-container::after {
+  content: "";
+  background-image: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNDk0OTQ5IiB3aWR0aD0iNzAwcHQiIGhlaWdodD0iNzAwcHQiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDcwMCA3MDAiCiAgICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDxwYXRoCiAgICAgICAgZD0ibTM4MC4zOSA0ODQuNzkgMzA3LjA0LTMwNS45OWMxNi43NjYtMTcuODEyIDE2Ljc2Ni00NS4wNTkgMC02MS44MjgtMTYuNzY2LTE2Ljc2Ni00NS4wNTktMTYuNzY2LTYxLjgyOCAwbC0yNzUuNiAyNzUuNi0yNzUuNi0yNzUuNmMtMTcuODEyLTE2Ljc2Ni00NS4wNTktMTYuNzY2LTYxLjgyOCAwLTE2Ljc2NiAxNi43NjYtMTYuNzY2IDQ0LjAxMiAwIDYxLjgyOGwzMDUuOTkgMzA1Ljk5YzE3LjgxMiAxNi43NjYgNDUuMDU5IDE2Ljc2NiA2MS44MjggMHoiCiAgICAgICAgZmlsbC1ydWxlPSJjdXJyZW50Q29sb3IiIC8+Cjwvc3ZnPg==");
+  width: 12px;
+  height: 12px;
+  background-position: center;
+  background-size: cover;
+  margin-left: 5px;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
+.select-wrapper {
+  width: var(--width);
+  position: absolute;
+  top: calc(var(--height) + 20px);
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
+.select-wrapper ul {
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0;
+  list-style: none;
+  height: 300px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  white-space: nowrap;
+}
+
+.select-wrapper ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.select-wrapper ul li label {
+  width: 100%;
+}
+
+.select-wrapper ul li,
+.select-wrapper ul li * {
+  cursor: pointer;
+}
+
+.select-wrapper ul li:hover {
+  background: lightgray;
+}
+
+.select-wrapper ul li span {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.input-wrapper {
+  width: 100%;
+  padding-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  row-gap: 2px;
+}
+
+.input-wrapper legend {
+  font-size: 11px;
+}
+
+.input-wrapper .textfield {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.input-wrapper .textfield::before {
+  content: "+31";
+  margin-right: 5px;
+  white-space: nowrap;
+}
+
+.input-wrapper .textfield input {
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+.invalid-msg {
+  font-size: 12px;
+  position: absolute;
+  color: red;
+  top: 115%;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
+/* actions */
+
+#phonenumber:invalid+.invalid-msg {
+  top: 110%;
+  opacity: 1;
+  visibility: visible;
+}
+
+.ui-wrapper:focus-within {
+  border-color: var(--border-focus-color);
+  -webkit-box-shadow: 0px 2px 5px 0px var(--shadow-focus-color);
+  box-shadow: 0px 2px 5px 0px var(--shadow-focus-color);
+}
+
+.dropdown-container:hover {
+  background-color: var(--dropdown-button-hover-color);
+}
+
+.dropdown-checkbox:checked~.select-wrapper {
+  top: calc(var(--height) + 5px);
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-checkbox:checked+.dropdown-container::after {
+  rotate: 180deg;
+  translate: 0 -2px;
+}
+
+.ui-wrapper input#Austria:checked~.dropdown-container::before,
+.ui-wrapper input#Austria:checked~.select-wrapper li.Austria {
+  content: "🇦🇹";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Belgium:checked~.dropdown-container::before,
+.ui-wrapper input#Belgium:checked~.select-wrapper li.Belgium {
+  content: "🇧🇪";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Bulgaria:checked~.dropdown-container::before,
+.ui-wrapper input#Bulgaria:checked~.select-wrapper li.Bulgaria {
+  content: "🇧🇬";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Croatia:checked~.dropdown-container::before,
+.ui-wrapper input#Croatia:checked~.select-wrapper li.Croatia {
+  content: "🇭🇷";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Cyprus:checked~.dropdown-container::before,
+.ui-wrapper input#Cyprus:checked~.select-wrapper li.Cyprus {
+  content: "🇨🇾";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Czech:checked~.dropdown-container::before,
+.ui-wrapper input#Czech:checked~.select-wrapper li.Czech {
+  content: "🇨🇿";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Denmark:checked~.dropdown-container::before,
+.ui-wrapper input#Denmark:checked~.select-wrapper li.Denmark {
+  content: "🇩🇰";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Estonia:checked~.dropdown-container::before,
+.ui-wrapper input#Estonia:checked~.select-wrapper li.Estonia {
+  content: "🇪🇪";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Finland:checked~.dropdown-container::before,
+.ui-wrapper input#Finland:checked~.select-wrapper li.Finland {
+  content: "🇫🇮";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#France:checked~.dropdown-container::before,
+.ui-wrapper input#France:checked~.select-wrapper li.France {
+  content: "🇫🇷";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Germany:checked~.dropdown-container::before,
+.ui-wrapper input#Germany:checked~.select-wrapper li.Germany {
+  content: "🇩🇪";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Greece:checked~.dropdown-container::before,
+.ui-wrapper input#Greece:checked~.select-wrapper li.Greece {
+  content: "🇬🇷";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Hungary:checked~.dropdown-container::before,
+.ui-wrapper input#Hungary:checked~.select-wrapper li.Hungary {
+  content: "🇭🇺";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Iceland:checked~.dropdown-container::before,
+.ui-wrapper input#Iceland:checked~.select-wrapper li.Iceland {
+  content: "🇮🇸";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Ireland:checked~.dropdown-container::before,
+.ui-wrapper input#Ireland:checked~.select-wrapper li.Ireland {
+  content: "🇮🇪";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Italy:checked~.dropdown-container::before,
+.ui-wrapper input#Italy:checked~.select-wrapper li.Italy {
+  content: "🇮🇹";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Latvia:checked~.dropdown-container::before,
+.ui-wrapper input#Latvia:checked~.select-wrapper li.Latvia {
+  content: "🇱🇻";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Liechtenstein:checked~.dropdown-container::before,
+.ui-wrapper input#Liechtenstein:checked~.select-wrapper li.Liechtenstein {
+  content: "🇱🇮";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Lithuania:checked~.dropdown-container::before,
+.ui-wrapper input#Lithuania:checked~.select-wrapper li.Lithuania {
+  content: "🇱🇹";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Luxembourg:checked~.dropdown-container::before,
+.ui-wrapper input#Luxembourg:checked~.select-wrapper li.Luxembourg {
+  content: "🇱🇺";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Malta:checked~.dropdown-container::before,
+.ui-wrapper input#Malta:checked~.select-wrapper li.Malta {
+  content: "🇲🇹";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Netherlands:checked~.dropdown-container::before,
+.ui-wrapper input#Netherlands:checked~.select-wrapper li.Netherlands {
+  content: "🇳🇱";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Norway:checked~.dropdown-container::before,
+.ui-wrapper input#Norway:checked~.select-wrapper li.Norway {
+  content: "🇳🇴";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Poland:checked~.dropdown-container::before,
+.ui-wrapper input#Poland:checked~.select-wrapper li.Poland {
+  content: "🇵🇱";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Portugal:checked~.dropdown-container::before,
+.ui-wrapper input#Portugal:checked~.select-wrapper li.Portugal {
+  content: "🇵🇹";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Romania:checked~.dropdown-container::before,
+.ui-wrapper input#Romania:checked~.select-wrapper li.Romania {
+  content: "🇷🇴";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Slovakia:checked~.dropdown-container::before,
+.ui-wrapper input#Slovakia:checked~.select-wrapper li.Slovakia {
+  content: "🇸🇰";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Slovenia:checked~.dropdown-container::before,
+.ui-wrapper input#Slovenia:checked~.select-wrapper li.Slovenia {
+  content: "🇸🇮";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Spain:checked~.dropdown-container::before,
+.ui-wrapper input#Spain:checked~.select-wrapper li.Spain {
+  content: "🇪🇸";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Sweden:checked~.dropdown-container::before,
+.ui-wrapper input#Sweden:checked~.select-wrapper li.Sweden {
+  content: "🇸🇪";
+  background-color: lightgray;
+}
+
+.ui-wrapper input#Austria:checked~.input-wrapper .textfield::before {
+  content: "+43";
+}
+
+.ui-wrapper input#Belgium:checked~.input-wrapper .textfield::before {
+  content: "+32";
+}
+
+.ui-wrapper input#Bulgaria:checked~.input-wrapper .textfield::before {
+  content: "+359";
+}
+
+.ui-wrapper input#Croatia:checked~.input-wrapper .textfield::before {
+  content: "+385";
+}
+
+.ui-wrapper input#Cyprus:checked~.input-wrapper .textfield::before {
+  content: "+357";
+}
+
+.ui-wrapper input#Czech:checked~.input-wrapper .textfield::before {
+  content: "+420";
+}
+
+.ui-wrapper input#Denmark:checked~.input-wrapper .textfield::before {
+  content: "+45";
+}
+
+.ui-wrapper input#Estonia:checked~.input-wrapper .textfield::before {
+  content: "+372";
+}
+
+.ui-wrapper input#Finland:checked~.input-wrapper .textfield::before {
+  content: "+358";
+}
+
+.ui-wrapper input#France:checked~.input-wrapper .textfield::before {
+  content: "+33";
+}
+
+.ui-wrapper input#Germany:checked~.input-wrapper .textfield::before {
+  content: "+49";
+}
+
+.ui-wrapper input#Greece:checked~.input-wrapper .textfield::before {
+  content: "+30";
+}
+
+.ui-wrapper input#Hungary:checked~.input-wrapper .textfield::before {
+  content: "+36";
+}
+
+.ui-wrapper input#Iceland:checked~.input-wrapper .textfield::before {
+  content: "+354";
+}
+
+.ui-wrapper input#Ireland:checked~.input-wrapper .textfield::before {
+  content: "+353";
+}
+
+.ui-wrapper input#Italy:checked~.input-wrapper .textfield::before {
+  content: "+39";
+}
+
+.ui-wrapper input#Latvia:checked~.input-wrapper .textfield::before {
+  content: "+371";
+}
+
+.ui-wrapper input#Liechtenstein:checked~.input-wrapper .textfield::before {
+  content: "+423";
+}
+
+.ui-wrapper input#Lithuania:checked~.input-wrapper .textfield::before {
+  content: "+370";
+}
+
+.ui-wrapper input#Luxembourg:checked~.input-wrapper .textfield::before {
+  content: "+352";
+}
+
+.ui-wrapper input#Malta:checked~.input-wrapper .textfield::before {
+  content: "+356";
+}
+
+.ui-wrapper input#Netherlands:checked~.input-wrapper .textfield::before {
+  content: "+31";
+}
+
+.ui-wrapper input#Norway:checked~.input-wrapper .textfield::before {
+  content: "+47";
+}
+
+.ui-wrapper input#Poland:checked~.input-wrapper .textfield::before {
+  content: "+48";
+}
+
+.ui-wrapper input#Portugal:checked~.input-wrapper .textfield::before {
+  content: "+351";
+}
+
+.ui-wrapper input#Romania:checked~.input-wrapper .textfield::before {
+  content: "+40";
+}
+
+.ui-wrapper input#Slovakia:checked~.input-wrapper .textfield::before {
+  content: "+421";
+}
+
+.ui-wrapper input#Slovenia:checked~.input-wrapper .textfield::before {
+  content: "+386";
+}
+
+.ui-wrapper input#Spain:checked~.input-wrapper .textfield::before {
+  content: "+34";
+}
+
+.ui-wrapper input#Sweden:checked~.input-wrapper .textfield::before {
+  content: "+46";
+}
+/* === removing default button style ===*/
+.button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+.button:hover {
+  background-color: rgba(189, 63, 63, 0.788);
+}
+/* button styling */
+.button {
+  --border-right: 6px;
+  --text-stroke-color:rgba(165, 42, 42, 0.788);
+  --animation-color:rgba(165, 42, 42, 0.795);
+  --fs-size: 1em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+/* this is the text, when you hover on button */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.button:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color))
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+  }
+  
+  .title {
+    font-size: 28px;
+    color: royalblue;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+  }
+  
+  .title::before,.title::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color:brown;
+  }
+  
+  .title::before {
+    width: 18px;
+    height: 18px;
+    background-color:brown;
+  }
+  
+  .title::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+  }
+  
+  .message, .signin {
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .signin {
+    text-align: center;
+  }
+  
+  .signin a {
+    color: rgba(165, 42, 42, 0.904);
+  }
+  
+  .signin a:hover {
+    text-decoration: underline brown;
+  }
+  
+  .flex {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+  }
+  
+  .form label {
+    position: relative;
+  }
+  
+  .form label .input {
+    width: 100%;
+    padding: 10px 10px 20px 10px;
+    outline: 0;
+    
+    border: 1px solid rgba(105, 105, 105, 0.397,0.500);
+    border-radius: 10px;
+  }
+  
+  .form label .input + span {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+  }
+  
+  .form label .input:placeholder-shown + span {
+    top: 15px;
+    font-size: 0.9em;
+    
+  }
+  
+  .form label .input:focus + span,.form label .input:valid + span {
+    top: 30px;
+    font-size: 0.7em;
+    font-weight: 600;
+  }
+  
+  .form label .input:valid + span {
+    color: black;
+   
+  }
+  
+.buttonsignup {
+    --primary-color:brown;
+    --secondary-color: #fff;
+    --hover-color: #111;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 1em 1.8em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+  }
+  
+  .buttonsignup .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+ .buttonsignup .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+  }
+  
+.buttonsignup .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+  }
+  
+ .buttonsignup:hover {
+    background-color: var(--hover-color);
+  }
+  
+  .buttonsignup:hover .arrow {
+    background: var(--secondary-color);
+  }
+  
+  .buttonsignup:hover .arrow:before {
+    right: 0;
+  }
+  
+  @keyframes pulse {
+    from {
+      transform: scale(0.9);
+      opacity: 1;
+    }
+  
+    to {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }

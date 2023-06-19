@@ -24,9 +24,9 @@ const Search = () => {
       <img src={logo} alt="logo" />
       <div className="container">
         <input type="text" name="text" className="input" placeholder="Search here..." />
-        <button className="search__btn">
+        <span className="search__btn">
           <BiSearch />
-        </button>
+        </span>
       </div>
       <ul>
         <li>
