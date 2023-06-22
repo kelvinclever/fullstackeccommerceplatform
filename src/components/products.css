@@ -38,6 +38,7 @@
   .products-container {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
+    
     gap: 1rem;
     padding: 0 2rem;
   }

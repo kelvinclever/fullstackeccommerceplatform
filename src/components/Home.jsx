@@ -18,7 +18,7 @@ const Home = () => {
       <div className='homecontainer'>
         <div className='homeleft'>
         <Lottie animationData={animationData} id='myLottieAnimation' />
-          <p class="rotate-z-axis">
+          <p className="rotate-z-axis">
             <span>Q</span>
             <span>*</span>
             <span>C</span>

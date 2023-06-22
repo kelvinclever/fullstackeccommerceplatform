@@ -1,10 +1,18 @@
 import React, { useContext } from 'react';
-import { CartContext } from '../context/cart.jsx';
-import { ToastContainer, toast } from 'react-toastify'
-import './cart.css';
+import { CartContext } from '../context/cart';
+import './Cart.css'
+const Cart = () => {
+  const { cartItems, removeFromCart, clearCart, getCartTotal, incrementQuantity, decrementQuantity } = useContext(
+    CartContext
+  );
 
-export default function Cart() {
-  const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } = useContext(CartContext);
+  const handleRemoveItem = (item) => {
+    removeFromCart(item);
+  };
+
+  const handleClearCart = () => {
+    clearCart();
+  };
 
   const handleIncrement = (item) => {
     addToCart(item);
@@ -14,35 +22,67 @@ export default function Cart() {
     removeFromCart(item);
   };
 
+  const handleCheckout = () => {
+    // Handle checkout logic
+  };
 
   return (
-    <div className="cart-page">
-      <h1>Cart</h1>
-      {cartItems.length > 0 ? (
-        <>
-          {cartItems.map((item) => (
-            <div key={item.id} className="cart-item">
-              <div className="item-details">
-                <img src={item.thumbnail} alt={item.title} className="item-thumbnail" />
-                <div>
-                  <h2>{item.title}</h2>
-                  <p>{item.price}</p>
-                  <p>{item.description}</p>
-                </div>
-              </div>
-              <div className="item-controls">
-                <button onClick={() => handleDecrement(item)}>-</button>
-                <span>{item.quantity}</span>
-                <button onClick={() => handleIncrement(item)}>+</button>
-              </div>
-            </div>
-          ))}
-          <h3 className="total">Total: {getCartTotal()}</h3>
-          <button className="clear-cart" onClick={clearCart}>Clear Cart</button>
-        </>
+    <div className="cart">
+      <h2>Cart</h2>
+      {cartItems.length === 0 ? (
+        <p>Your cart is empty</p>
       ) : (
-        <p>Your cart is empty.</p>
+        <>
+          <table className="cart-items">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartItems.map((item) => (
+                <tr key={item.product_id}>
+                  <td>
+                    <img src={item.image_path} alt={item.name} className="cart-item-image" />
+                    <div className="cart-item-description">
+                      <h3>{item.name}</h3>
+                    </div>
+                  </td>
+                  <td>${item.price}</td>
+                  <td>
+                    <div className="quantity-control">
+                    <button onClick={() => handleDecrement(item)}>-</button>
+                <span>{item.quantity}</span>
+                <button onClick={() => handleIncrement(item + 1)}>+</button>
+                    </div>
+                  </td>
+                  <td>
+                    <button className="remove-button" onClick={() => handleRemoveItem(item)}>
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="cart-total">
+            <p>Total: ${getCartTotal()}</p>
+            <div>
+              <button className="checkout-button" onClick={handleCheckout}>
+                Checkout
+              </button>
+              <button className="clear-cart-button" onClick={handleClearCart}>
+                Clear Cart
+              </button>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );
-}
+};
+
+export default Cart;

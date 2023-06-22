@@ -9,7 +9,7 @@ export default function Products() {
   const { cartItems, addToCart, removeFromCart } = useContext(CartContext)
 
   async function getProducts() {
-    const response = await fetch('https://dummyjson.com/products')
+    const response = await fetch('http://localhost:3000/products')
     const data = await response.json()
     setProducts(data.products)
   }
@@ -22,11 +22,11 @@ export default function Products() {
   const removefromcarttoast = () => toast.error('Item removed from cart!')
 
   const isInCart = (productId) => {
-    return cartItems.some((item) => item.id === productId)
+    return cartItems.some((item) => item.product_id === productId)
   }
 
   const handleCartButton = (product) => {
-    if (isInCart(product.id)) {
+    if (isInCart(product.product_id)) {
       removeFromCart(product)
       removefromcarttoast()
     } else {
@@ -42,19 +42,19 @@ export default function Products() {
       </div>
       <div className='products-container'>
         {products.map((product) => (
-          <div key={product.id} className='product-content'>
-            <img src={product.thumbnail} alt={product.title} className='product-image' />
+          <div key={product.product_id} className='product-content'>
+            <img src={product.image_path} alt={product.name} className='product-image' />
             <div className='product-description'>
-              <h1 className='product-title'>{product.title}</h1>
+              <h1 className='product-title'>{product.name}</h1>
               <p className='product-dec'>{product.description.slice(0, 40)}...</p>
               <p className='product-price'>${product.price}</p>
             </div>
             <div className='product-addbutton'>
               <button
-                className={`buttonadd ${isInCart(product.id) ? 'remove' : 'add'}`}
+                className={`buttonadd ${isInCart(product.product_id) ? 'remove' : 'add'}`}
                 onClick={() => handleCartButton(product)}
               >
-                {isInCart(product.id) ? 'Remove from cart' : 'Add to cart'}
+                {isInCart(product.product_id) ? 'Remove from cart' : 'Add to cart'}
               </button>
             </div>
           </div>
