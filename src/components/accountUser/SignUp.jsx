@@ -61,41 +61,6 @@ const SignUp = () => {
           <span>Confirm password</span>
         </label>
 
-        <label>
-          <DatePicker
-            selected={birthDate}
-            onChange={handleBirthDateChange}
-            placeholderText='YYYY-MM-DD'
-            className='input'
-            dateFormat='yyyy-MM-dd'
-          />
-          <span>Birth Date</span>
-        </label>
-
-        <div className='gender-container'>
-          <span>Gender</span>
-          <label>
-            <input
-              type='radio'
-              name='gender'
-              value='male'
-              checked={gender === 'male'}
-              onChange={handleGenderChange}
-            />
-            Male
-          </label>
-          <label>
-            <input
-              type='radio'
-              name='gender'
-              value='female'
-              checked={gender === 'female'}
-              onChange={handleGenderChange}
-            />
-            Female
-          </label>
-        </div>
-
         <div className='terms-container'>
           <label>
             <input

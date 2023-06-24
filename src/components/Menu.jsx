@@ -41,9 +41,6 @@ const Menu = () => {
             <a href="/user">Account</a>
           </li>
           <li>
-            <a href="/vendor">sell</a>
-          </li>
-          <li>
             <a href="onlinecyber">services</a>
           </li>
           <li>

@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/cart';
+import axios from 'axios'
 import './Cart.css'
 const Cart = () => {
-  const { cartItems, removeFromCart, clearCart, getCartTotal, incrementQuantity, decrementQuantity } = useContext(
+  const { cartItems, removeFromCart, clearCart, getCartTotal,addToCart} = useContext(
     CartContext
   );
 
@@ -22,9 +23,27 @@ const Cart = () => {
     removeFromCart(item);
   };
 
-  const handleCheckout = () => {
-    // Handle checkout logic
+  const handleCheckout = async () => {
+    try {
+      const response = await axios.post('/checkout', {
+        amount: getCartTotal(),
+        currency: 'USD',
+        description: 'Payment for products',
+        source: '<Stripe token or payment method ID>',
+      });
+
+      if (response.data.success) {
+        // Payment succeeded
+        console.log('Payment succeeded');
+      } else {
+        // Payment failed
+        console.log('Payment failed');
+      }
+    } catch (error) {
+      console.error('Error processing payment:', error);
+    }
   };
+
 
   return (
     <div className="cart">
@@ -56,7 +75,7 @@ const Cart = () => {
                     <div className="quantity-control">
                     <button onClick={() => handleDecrement(item)}>-</button>
                 <span>{item.quantity}</span>
-                <button onClick={() => handleIncrement(item + 1)}>+</button>
+                <button onClick={() => handleIncrement(item )}>+</button>
                     </div>
                   </td>
                   <td>

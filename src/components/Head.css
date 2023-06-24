@@ -1,41 +1,59 @@
 .head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f1f1f1;
-    padding: 0.5rem 5rem ;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 0.5rem 5rem;
+}
+
+.lefttop {
+  display: flex;
+  align-items: center;
+}
+
+.phone,
+.email {
+  margin-right: 5px;
+}
+
+.phone-label,
+.email-label {
+  margin-left: 5px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.help {
+  margin-right: 10px;
+}
+
+.country {
+  margin-right: 10px;
+}
+
+.currency {
+  font-weight: bold;
+}
+
+/* Media Query for screens smaller than 768px */
+@media (max-width: 767px) {
+  .head {
+    padding: 0.5rem 2rem;
   }
-  
-  .lefttop {
-    display: flex;
-    align-items: center;
+}
+
+/* Media Query for screens smaller than 576px */
+@media (max-width: 575px) {
+  .head {
+    flex-direction: column;
+    padding: 0.5rem 1rem;
   }
-  
-  .phone,
-  .email {
-    margin-right: 5px;
-  }
-  
-  .phone-label,
-  .email-label {
-    margin-left: 5px;
-  }
-  
+
+  .lefttop,
   .right {
-    display: flex;
-    align-items: center;
+    margin-bottom: 1rem;
   }
-  
-  .help {
-    margin-right: 10px;
-  }
-  
-  .country {
-    margin-right: 10px;
-  }
-  
-  .currency {
-    font-weight: bold;
-  }
-  
+}

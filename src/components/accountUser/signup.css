@@ -759,6 +759,7 @@
     right: 0;
   }
   
+  
   @keyframes pulse {
     from {
       transform: scale(0.9);

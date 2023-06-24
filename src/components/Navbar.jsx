@@ -8,7 +8,8 @@ const Navbar = () => {
  
   return (
     <header>
-      <Search/>
+      <Search />
+
       <Menu/>
     
     </header>

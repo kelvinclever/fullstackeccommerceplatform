@@ -25,7 +25,7 @@ const Search = () => {
       <div className="container">
         <input type="text" name="text" className="input" placeholder="Search here..." />
         <button className="search__btn">
-          <BiSearch />
+          <BiSearch id="search-icon"/>
         </button>
       </div>
       <ul>

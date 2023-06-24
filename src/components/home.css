@@ -3,37 +3,35 @@
 .home {
   display: flex;
   flex-direction: column;
-
 }
 
 .homecontainer {
   display: flex;
-  flex:4;
   margin: 0;
   flex-direction: row;
-  justify-content: space-between;
-  max-width: 1100px;
-
+  justify-content: space-evenly;
 }
-.carousel-wrapper{
-  padding: 1rem;
+
+.carousel-wrapper {
+  padding: 0px;
   display: flex;
   justify-content: center;
 }
-.homeleft p{
+
+.homeleft p {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  top:1rem;
+  top: 1rem;
   left: 1rem;
   right: 1rem;
   bottom: 1rem;
-
 }
+
 #myLottieAnimation {
-  width: 40em;
-  height: 30em;
+  width: 100%; /* Adjust the width to fit the container */
+  height: auto; /* Let the height scale with the width */
   /* Add more styles as needed */
 }
 
@@ -49,44 +47,48 @@
   transition: transform 0.3s ease;
   transform: rotateZ(70deg);
 }
-.rotate-z-axis span:nth-child(2){
-  background-color:rgb(24, 24, 87);
+
+.rotate-z-axis span:nth-child(2) {
+  background-color: rgb(24, 24, 87);
   border-radius: 30%;
-  margin:5px;
+  margin: 5px;
 }
-.rotate-z-axis span:nth-child(4){
-  background-color:rgba(199, 56, 56, 0.945);
+
+.rotate-z-axis span:nth-child(4) {
+  background-color: rgba(199, 56, 56, 0.945);
   border-radius: 30%;
-  margin:5px;
+  margin: 5px;
 }
+
 .rotate-z-axis:hover span {
   transform: rotateZ(0deg);
   transform: rotateX(20deg);
 }
 
-.homeleft p span{
+.homeleft p span {
   font-size: 4em;
   font-weight: bolder;
 }
+
 .homeleft {
   display: flex;
   position: relative;
-  flex: 1;
-  height: 50%;
-  max-width: 400px; /* Set your desired maximum width here */
-  padding: 10px;
-
+  padding: 0px;
 }
 
 .homeright {
-  flex: 3;
-  max-width:600px; /* Set your desired maximum width here */
-  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  max-width: auto; /* Set your desired maximum width here */
+  padding:0px;
 }
 
 .home_image {
+object-fit: cover;
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 4px;
 }
 
@@ -126,7 +128,6 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
   padding: 10px;
-  border-radius: 50%;
   font-size: 24px;
   cursor: pointer; /* Add cursor style */
   transition: opacity 0.3s ease-in-out; /* Add transition for opacity change */
@@ -143,4 +144,32 @@
 .carousel-wrapper .carousel-slide .carousel-item .prev-button:hover,
 .carousel-wrapper .carousel-slide .carousel-item .next-button:hover {
   opacity: 0.8; /* Reduce opacity on hover */
+}
+
+/* Media Queries */
+@media (max-width: 767px) {
+  .carousel-wrapper {
+    height: 200px; /* Adjust the height for smaller screens */
+  }
+  
+  .home_image {
+    object-fit: contain; /* Display the home image with contain instead of cover */
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-wrapper {
+    height: 150px; /* Adjust the height for even smaller screens */
+  }
+  
+  #myLottieAnimation {
+    width: 80%; /* Adjust the width of the Lottie animation */
+    height: auto; /* Let the height scale with the width */
+  }
+}
+
+@media (max-width: 480px) {
+  .homeleft p span {
+    font-size: 3em; /* Adjust the font size for smaller screens */
+  }
 }
