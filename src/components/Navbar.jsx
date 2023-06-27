@@ -9,7 +9,6 @@ const Navbar = () => {
   return (
     <header>
       <Search />
-
       <Menu/>
     
     </header>

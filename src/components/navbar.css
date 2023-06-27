@@ -1,0 +1,14 @@
+.Search .active{
+    height: 12vh;
+    position: fixed;
+    top:0;
+    z-index: 1000;
+    width: 100%;
+    background-color: black;
+    box-shadow:-1px 11px 24px -11px black ;
+    transition: 0.5s;
+
+}
+@media screen   {
+    
+}

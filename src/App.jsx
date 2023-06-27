@@ -9,6 +9,7 @@ import Furnitures from './components/Furnitures.jsx';
 import Cart from './components/Cart.jsx';
 import SignUp from './components/accountUser/SignUp.jsx';
 import Login from './components/accountUser/Login.jsx';
+import Footer from './components/Footer.jsx';
 
 function App() {
   return (
@@ -40,12 +41,14 @@ function App() {
             <>
              <Menu/>
             <SignUp/>
+           
             </>
           
           
           } />
           <Route path="/login" element={<Login />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   );
