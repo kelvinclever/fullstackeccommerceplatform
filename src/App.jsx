@@ -11,7 +11,9 @@ import SignUp from './components/accountUser/SignUp.jsx';
 import Login from './components/accountUser/Login.jsx';
 import Footer from './components/Footer.jsx';
 import AccountInfo from './components/accountUser/AccountInfo.jsx';
+import LoginAdmin from './components/admin/LoginAdmin.jsx';
 import Admin from './components/admin/Admin.jsx';
+
 
 function App() {
   return (
@@ -57,9 +59,17 @@ function App() {
           
           
           } />
-           <Route path="/admin" element={
+           <Route path="/admin/login" element={
             <>
-         <Admin/>
+         <LoginAdmin/>
+           
+            </>
+          
+          
+          } />
+             <Route path="/admin/dashboard" element={
+            <>
+            <Admin/>
            
             </>
           
@@ -67,7 +77,7 @@ function App() {
           } />
           <Route path="/login" element={<Login />} />
         </Routes>
-       
+       <Footer/>
       </BrowserRouter>
     </div>
   );

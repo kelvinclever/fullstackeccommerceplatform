@@ -1,7 +1,8 @@
 import './navbaradmin.css'
-
+import { useState } from 'react'
 
 const NavbarAdmin = ()=>{
+    
     return(
         <div className='navbaradmin'>
             <div className='leftside'>
@@ -21,7 +22,6 @@ const NavbarAdmin = ()=>{
                 </div>
             </div>
             <div className='rigtside'>
-              
                    <button id='logout'>
                     logout
                    </button>
