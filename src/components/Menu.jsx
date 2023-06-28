@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { BiMenu } from 'react-icons/bi';
 import { ImCancelCircle } from 'react-icons/im';
 import './menu.css';
+import { useContext } from 'react';
+import { Context } from '../context/customercontext/customer.context';
 
 const Menu = () => {
+  const {user} = useContext(Context);
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -36,10 +39,10 @@ const Menu = () => {
           </li>
           <li>
             <a href="/about">About</a>
-          </li>
-          <li>
+          </li>{user? 
+         <li>
             <a href="/user">Account</a>
-          </li>
+          </li>:""}
           <li>
             <a href="onlinecyber">services</a>
           </li>

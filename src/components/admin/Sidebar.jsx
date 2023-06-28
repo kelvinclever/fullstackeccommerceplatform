@@ -1,0 +1,33 @@
+import { useContext } from 'react'
+import './sidenav.css'
+import { Context } from '../../context/admincontext/Context'
+const Sidebar=()=>{
+    const{dispatch}=useContext(Context);
+    const handleprofile=()=>{
+        dispatch({ type: "profile", payload: 'profile' })
+    }
+    const handleproducts=()=>{
+         dispatch({ type: "products", payload: 'products' })
+    }
+
+    const handlecustomers=()=>{
+       dispatch({ type: "customers", payload: 'customers' })
+    }
+
+    const handleorders=()=>{
+        dispatch({ type: "orders", payload: 'orders' })
+    }
+
+
+
+    return(
+        <div className='sidenav'>
+            <span onClick={handleprofile}>profile</span>
+            <span onClick={handleproducts}>products</span>
+            <span onClick={handlecustomers}>customers</span>
+            <span onClick={handleorders}>orders</span>
+        </div>
+    )
+}
+
+export default Sidebar

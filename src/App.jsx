@@ -10,6 +10,8 @@ import Cart from './components/Cart.jsx';
 import SignUp from './components/accountUser/SignUp.jsx';
 import Login from './components/accountUser/Login.jsx';
 import Footer from './components/Footer.jsx';
+import AccountInfo from './components/accountUser/AccountInfo.jsx';
+import Admin from './components/admin/Admin.jsx';
 
 function App() {
   return (
@@ -41,6 +43,23 @@ function App() {
             <>
              <Menu/>
             <SignUp/>
+           
+            </>
+          
+          
+          } />
+          <Route path="/user" element={
+            <>
+             <Menu/>
+            <AccountInfo/>
+           
+            </>
+          
+          
+          } />
+           <Route path="/admin" element={
+            <>
+         <Admin/>
            
             </>
           

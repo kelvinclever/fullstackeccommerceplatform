@@ -58,11 +58,19 @@ const Search = () => {
               {user ? 'logout' : 'login'} <BiLogIn />
             </a>
           </li>
+          <li> <a href="/admin">admin</a></li>
           <li>
-            <a href="/signup" className="menu-item">
-              signup <SiGnuprivacyguard />
-            </a>
-          </li>
+  <a href="/signup" className="menu-item">
+    {!user ? (
+      <span>
+        Signup <SiGnuprivacyguard />
+      </span>
+    ) : (
+      ''
+    )}
+  </a>
+</li>
+
           <li>
             <a href="/products/cart">
               <span className="cart">
