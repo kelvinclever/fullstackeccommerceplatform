@@ -22,7 +22,10 @@ const Sidebar=()=>{
 
     return(
         <div className='sidenav'>
-            <span onClick={handleprofile}>profile</span>
+            <div>
+            <span onClick={handleprofile} className='profile'>profile</span>
+            </div>
+          
             <span onClick={handleproducts}>products</span>
             <span onClick={handlecustomers}>customers</span>
             <span onClick={handleorders}>orders</span>

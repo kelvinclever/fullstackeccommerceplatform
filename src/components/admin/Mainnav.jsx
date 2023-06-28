@@ -1,6 +1,8 @@
 import './mainnav.css'
 import { useContext } from 'react'
+import ProductsAdmin from './ProductsAdmin.jsx'
 import { Context } from '../../context/admincontext/Context'
+import Customers from './Customers'
 const Mainnav=()=>{
     const {ui}=useContext(Context)
     console.log(ui)
@@ -12,11 +14,11 @@ const Mainnav=()=>{
         </div>
             ):ui=="customers"?(
                  <div>
-                <h1>this are customer</h1>
+               <Customers/>
             </div>
             ):ui=="products"?(
                 <div>
-                <h1>products</h1>
+                    <ProductsAdmin/>
             </div> 
             ):ui=="orders"?(
                 <div>
