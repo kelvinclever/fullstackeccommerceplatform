@@ -17,6 +17,9 @@ const Sidebar=()=>{
     const handleorders=()=>{
         dispatch({ type: "orders", payload: 'orders' })
     }
+    const handleadmins=()=>{
+        dispatch({ type: "admins", payload: 'admins' })
+    }
 
 
 
@@ -29,6 +32,8 @@ const Sidebar=()=>{
             <span onClick={handleproducts}>products</span>
             <span onClick={handlecustomers}>customers</span>
             <span onClick={handleorders}>orders</span>
+            <span onClick={handleadmins}>admins</span>
+            
         </div>
     )
 }

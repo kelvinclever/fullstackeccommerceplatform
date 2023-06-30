@@ -13,6 +13,11 @@ const Reducer = (state, action) => {
             return {
                 ui: action.payload
             }
+            case "admins":
+            return {
+                ui: action.payload
+            }
+        
             case "orders":
             return {
                 ui: action.payload

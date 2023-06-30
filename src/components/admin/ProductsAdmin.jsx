@@ -27,6 +27,7 @@ export default function Products() {
       const response = await fetch('http://localhost:3000/products');
       const data = await response.json();
       setProducts(data.products);
+
     } catch (error) {
       console.error('Error fetching products:', error);
     }

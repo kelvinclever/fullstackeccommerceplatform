@@ -1,7 +1,15 @@
 import './navbaradmin.css'
-import { useState } from 'react'
-
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { Context } from '../../context/customercontext/customer.context';
 const NavbarAdmin = ()=>{
+    const navigate=useNavigate()
+    const {dispatch}=useContext(Context);
+    const handleLogout = () => {
+        dispatch({ type: 'LOGOUT' });
+        navigate('/admin/login');
+      };
+    
     
     return(
         <div className='navbaradmin'>
@@ -22,7 +30,7 @@ const NavbarAdmin = ()=>{
                 </div>
             </div>
             <div className='rigtside'>
-                   <button id='logout'>
+                   <button id='logout' onClick={handleLogout}>
                     logout
                    </button>
             </div>

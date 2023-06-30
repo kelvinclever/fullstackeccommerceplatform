@@ -130,7 +130,7 @@ export default function Customers() {
   return (
     <div className="customers">
       <div className="customers-nav">
-        <h1>    QUICK CHECK STORE</h1>
+        <h1> QUICK CHECK STORE</h1>
         <div className="search-container">
           <input
             type="text"
