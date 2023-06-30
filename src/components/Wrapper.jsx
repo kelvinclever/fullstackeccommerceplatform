@@ -10,23 +10,23 @@ const Wrapper = () => {
   const data = [
     {
       cover:<Lottie  animationData={animationData1} />,
-      title: "Worldwide Delivery",
-      decs: "We offer competitive prices on our 100 million plus product any range.",
+      title: "country wide Delivery",
+      decs: "At QuickCheck Store, we believe that affordable prices should never mean compromising on quality.",
     },
     {
       cover: pay,
       title: "Safe Payment",
-      decs: "We offer competitive prices on our 100 million plus product any range.",
+      decs: "Your online security is our utmost priority. We employ robust security measures to protect your personal information and ensure a safe shopping environment. ",
     },
     {
       cover: <Lottie animationData={animationData} />,
       title: "Shop With Confidence",
-      decs: "We offer competitive prices on our 100 million plus product any range.",
+      decs: "We value our customers and strive to provide exceptional service every step of the way",
     },
     {
       cover: logo,
       title: "24/7 Support",
-      decs: "We offer competitive prices on our 100 million plus product any range.",
+      decs: " Our dedicated customer support team is here to assist you every step of the way.",
     },
   ];
 

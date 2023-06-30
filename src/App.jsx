@@ -14,7 +14,10 @@ import Footer from './components/Footer.jsx';
 import AccountInfo from './components/accountUser/AccountInfo.jsx';
 import LoginAdmin from './components/admin/LoginAdmin.jsx';
 import Admin from './components/admin/Admin.jsx';
-
+import AboutPage from './components/About.jsx';
+import Search from './components/Search.jsx';
+import Products from './components/Products.jsx';
+import ContactPage from './components/Contact.jsx';
 function App() {
   const { user } = useContext(Context);
   const isAdmin = user && user.username; // Check if user is authenticated as an admin
@@ -43,6 +46,37 @@ function App() {
                 <Menu />
                 <Cart />
                 <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/products"
+            element={
+              <>
+                <Menu/>
+                <Search/>
+                <Products/>
+                <Footer/>
+              </>
+            }
+          />
+           <Route
+            path="/contact"
+            element={
+              <>
+                <Menu/>
+                    <ContactPage/>
+                <Footer/>
+              </>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <>
+                <Menu/>
+                <AboutPage/>
+                <Footer/>
               </>
             }
           />

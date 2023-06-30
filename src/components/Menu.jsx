@@ -35,7 +35,7 @@ const Menu = () => {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/shop">new products</a>
+            <a href="/products">products</a>
           </li>
           <li>
             <a href="/about">About</a>
@@ -43,9 +43,7 @@ const Menu = () => {
          <li>
             <a href="/user">Account</a>
           </li>:""}
-          <li>
-            <a href="onlinecyber">services</a>
-          </li>
+      
           <li>
             <a href="/contact">Contact us</a>
           </li>

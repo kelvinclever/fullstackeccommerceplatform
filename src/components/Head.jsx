@@ -3,7 +3,7 @@ import { BsFillTelephoneFill } from 'react-icons/bs';
 import { TfiEmail } from 'react-icons/tfi';
 import { MdLiveHelp } from 'react-icons/md';
 import { GiKenya } from 'react-icons/gi';
-import './head.css';
+import './Head.css';
 
 const Head = () => {
   return (
