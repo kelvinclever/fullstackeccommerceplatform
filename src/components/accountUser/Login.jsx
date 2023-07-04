@@ -26,7 +26,7 @@ const Login = () => {
   });
 
   const onSubmit = (data) => {
-    Axios.post(`http://localhost:3000/auth/login`, data)
+    Axios.post(`https://eccommerceapiqcs.azurewebsites.net/auth/login`, data)
       .then((response) => {
         const { data } = response;
         if (data && data.token) {

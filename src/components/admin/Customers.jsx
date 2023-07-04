@@ -22,7 +22,7 @@ export default function Customers() {
 
   async function getCustomers() {
     try {
-      const response = await fetch("http://localhost:3000/customers");
+      const response = await fetch("https://eccommerceapiqcs.azurewebsites.net/customers");
       const data = await response.json();
       setCustomers(data.customers);
       setFilteredCustomers(data.customers); // Set filteredCustomers initially with all customers
@@ -33,7 +33,7 @@ export default function Customers() {
 
   const deleteCustomer = async (customerId) => {
     try {
-      await fetch(`http://localhost:3000/customers/${customerId}/delete`, {
+      await fetch(`https://eccommerceapiqcs.azurewebsites.net/customers/${customerId}/delete`, {
         method: "DELETE",
       });
       setCustomers((prevCustomers) =>
@@ -77,7 +77,7 @@ export default function Customers() {
       }
 
       const response = await fetch(
-        `http://localhost:3000/customers/${newCustomer.customer_id}/update`,
+        `https://eccommerceapiqcs.azurewebsites.net/customers/${newCustomer.customer_id}/update`,
         {
           method: "PUT",
           headers: {

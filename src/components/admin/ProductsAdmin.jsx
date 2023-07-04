@@ -24,7 +24,7 @@ export default function Products() {
 
   async function getProducts() {
     try {
-      const response = await fetch('http://localhost:3000/products');
+      const response = await fetch('https://eccommerceapiqcs.azurewebsites.net/products');
       const data = await response.json();
       setProducts(data.products);
 
@@ -35,7 +35,7 @@ export default function Products() {
 
   const deleteProduct = async (productId) => {
     try {
-      await fetch(`http://localhost:3000/products/${productId}/delete`, {
+      await fetch(`https://eccommerceapiqcs.azurewebsites.net/products/${productId}/delete`, {
         method: 'DELETE',
       });
       setProducts((prevProducts) => prevProducts.filter((product) => product.product_id !== productId));
@@ -64,7 +64,7 @@ export default function Products() {
       let response;
       if (newProduct.product_id) {
         // If product_id exists, update the existing product
-        response = await fetch(`http://localhost:3000/products/${newProduct.product_id}/update`, {
+        response = await fetch(`https://eccommerceapiqcs.azurewebsites.net/products/${newProduct.product_id}/update`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ export default function Products() {
         });
       } else {
         // Otherwise, add a new product
-        response = await fetch('http://localhost:3000/products/new', {
+        response = await fetch('https://eccommerceapiqcs.azurewebsites.net/products/new', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

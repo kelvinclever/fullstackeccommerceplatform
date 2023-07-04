@@ -38,7 +38,7 @@ const SignUp = () => {
   });
 
   const onSubmit = (data) => {
-    Axios.post("http://localhost:3000/customers/new", data)
+    Axios.post("https://eccommerceapiqcs.azurewebsites.net/customers/new", data)
       .then((response) => {
         response.data.message && alert(response.data.message);
         navigate("/");

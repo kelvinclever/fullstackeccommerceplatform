@@ -9,7 +9,7 @@ export default function Products() {
   const { cartItems, addToCart, removeFromCart } = useContext(CartContext)
 
   async function getProducts() {
-    const response = await fetch('http://localhost:3000/products')
+    const response = await fetch('https://eccommerceapiqcs.azurewebsites.net/products')
     const data = await response.json()
     setProducts(data.products)
   }

@@ -23,7 +23,7 @@ export default function UserAdmin() {
 
   async function getAdmins() {
     try {
-      const response = await fetch("http://localhost:3000/admins");
+      const response = await fetch("https://eccommerceapiqcs.azurewebsites.net/admins");
       const { admin } = await response.json(); // Update the property name to 'admin'
       setAdmins(admin);
       setFilteredAdmins(admin);
@@ -48,7 +48,7 @@ export default function UserAdmin() {
         return;
       }
 
-      const response = await fetch("http://localhost:3000/admins/new", {
+      const response = await fetch("https://eccommerceapiqcs.azurewebsites.net/admins/new", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +79,7 @@ export default function UserAdmin() {
 
   const deleteAdmin = async (id) => {
     try {
-      await fetch(`http://localhost:3000/admins/${id}/delete`, {
+      await fetch(`https://eccommerceapiqcs.azurewebsites.net/admins/${id}/delete`, {
         method: "DELETE",
       });
       setAdmins((prevAdmins) =>
@@ -122,7 +122,7 @@ export default function UserAdmin() {
       }
 
       const response = await fetch(
-        `http://localhost:3000/admins/${newAdmin.id}/update`,
+        `https://eccommerceapiqcs.azurewebsites.net/admins/${newAdmin.id}/update`,
         {
           method: "PUT",
           headers: {

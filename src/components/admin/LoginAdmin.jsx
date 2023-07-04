@@ -27,7 +27,7 @@ const LoginAdmin = () => {
   });
 
   const onSubmit = (data) => {
-    Axios.post(`http://localhost:3000/admins/loginadmin`, data)
+    Axios.post(`https://eccommerceapiqcs.azurewebsites.net/admins/loginadmin`, data)
       .then((response) => {
         const { data } = response;
         if (data && data.token) {
