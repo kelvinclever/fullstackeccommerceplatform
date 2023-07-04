@@ -5,6 +5,7 @@ import { Context } from '../../context/admincontext/Context'
 import Customers from './Customers'
 import UserAdmin from './UserAdmin.jsx'
 import Profile from './Profile'
+import Orders from './Orders.jsx'
 const Mainnav=()=>{
     const {ui}=useContext(Context)
     console.log(ui)
@@ -24,7 +25,7 @@ const Mainnav=()=>{
             </div> 
             ):ui=="orders"?(
                 <div>
-                <h1>orders</h1>
+                <Orders/>
             </div> 
             ): ui=="admins"?(
                 <div>

@@ -2,7 +2,7 @@ import './orders.css'
 
 const Orders=()=>{
     return(
-        <div>this sales page</div>
+        <div><h1>this is sales page,, currently not available sorry</h1></div>
     )
 }
 export default Orders
