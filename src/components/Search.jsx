@@ -78,7 +78,6 @@ const Search = () => {
               </span>
             </a>
             <span id="cart-add">{cartItemCount}</span>
-            <span>toggle Dark</span>
           </li>
         </ul>
       </div>

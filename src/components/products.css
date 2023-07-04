@@ -37,8 +37,7 @@
     align-items: center;
     justify-content: center;
     display: grid;
-    grid-template-columns: repeat(auto, minmax(0, 1fr));
-    
+    grid-template-columns: repeat(auto, minmax(4, 1fr));
     gap: 1rem;
     padding: 0 2rem;
   }
